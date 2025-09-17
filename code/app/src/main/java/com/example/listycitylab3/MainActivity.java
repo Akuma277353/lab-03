@@ -6,6 +6,8 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -37,5 +39,10 @@ public class MainActivity extends AppCompatActivity implements AddCityFragment.A
         cityList = findViewById(R.id.city_list);
         cityAdapter = new CityArrayAdapter(this, dataList);
         cityList.setAdapter(cityAdapter);
+
+        FloatingActionButton fab = findViewById(R.id.button_add_city);
+        fab.setOnClickListener(v -> {
+            new AddCityFragment().show(getSupportFragmentManager(), "Add City");
+        });
     }
 }
